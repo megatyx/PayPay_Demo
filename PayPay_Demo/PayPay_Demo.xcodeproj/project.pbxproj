@@ -226,8 +226,8 @@
 		D063407E222E505900298713 /* PayPay_Demo */ = {
 			isa = PBXGroup;
 			children = (
-				01C3D72A222EE84F00885B55 /* Networking */,
 				D06340B4222E6D6F00298713 /* Constants */,
+				01C3D72A222EE84F00885B55 /* Networking */,
 				01C3D711222ED54700885B55 /* Views */,
 				01C3D70B222ED43B00885B55 /* ViewModels */,
 				D06340B2222E6D0A00298713 /* ViewControllers */,
