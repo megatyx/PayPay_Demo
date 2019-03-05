@@ -15,6 +15,10 @@
 		01C3D722222EDF6E00885B55 /* InformaticView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C3D721222EDF6E00885B55 /* InformaticView.xib */; };
 		01C3D725222EE05300885B55 /* UICustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3D724222EE05300885B55 /* UICustomView.swift */; };
 		01C3D728222EE0F200885B55 /* InformaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3D727222EE0F200885B55 /* InformaticView.swift */; };
+		01C3D72C222EE88000885B55 /* APISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3D72B222EE88000885B55 /* APISession.swift */; };
+		01C3D72E222EE8C200885B55 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3D72D222EE8C200885B55 /* APIError.swift */; };
+		01C3D731222EE96E00885B55 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3D730222EE96E00885B55 /* APIHandler.swift */; };
+		01C3D733222EE9F000885B55 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C3D732222EE9F000885B55 /* Reachability.swift */; };
 		D0634080222E505900298713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D063407F222E505900298713 /* AppDelegate.swift */; };
 		D0634082222E505900298713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0634081222E505900298713 /* ViewController.swift */; };
 		D0634085222E505900298713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0634083222E505900298713 /* Main.storyboard */; };
@@ -55,6 +59,10 @@
 		01C3D721222EDF6E00885B55 /* InformaticView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformaticView.xib; sourceTree = "<group>"; };
 		01C3D724222EE05300885B55 /* UICustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomView.swift; sourceTree = "<group>"; };
 		01C3D727222EE0F200885B55 /* InformaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformaticView.swift; sourceTree = "<group>"; };
+		01C3D72B222EE88000885B55 /* APISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISession.swift; sourceTree = "<group>"; };
+		01C3D72D222EE8C200885B55 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		01C3D730222EE96E00885B55 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		01C3D732222EE9F000885B55 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		D063407C222E505900298713 /* PayPay_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayPay_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D063407F222E505900298713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0634081222E505900298713 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +192,17 @@
 			path = InformaticView;
 			sourceTree = "<group>";
 		};
+		01C3D72A222EE84F00885B55 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				01C3D72B222EE88000885B55 /* APISession.swift */,
+				01C3D72D222EE8C200885B55 /* APIError.swift */,
+				01C3D730222EE96E00885B55 /* APIHandler.swift */,
+				01C3D732222EE9F000885B55 /* Reachability.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		D0634073222E505900298713 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +226,7 @@
 		D063407E222E505900298713 /* PayPay_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				01C3D72A222EE84F00885B55 /* Networking */,
 				D06340B4222E6D6F00298713 /* Constants */,
 				01C3D711222ED54700885B55 /* Views */,
 				01C3D70B222ED43B00885B55 /* ViewModels */,
@@ -255,17 +275,17 @@
 			children = (
 				D06340BA222E6F4C00298713 /* Constants.swift */,
 				01C3D71C222EDDA200885B55 /* ErrorStrings */,
-				D06340BC222E6FCB00298713 /* Networking */,
+				D06340BC222E6FCB00298713 /* API */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		D06340BC222E6FCB00298713 /* Networking */ = {
+		D06340BC222E6FCB00298713 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				D06340BD222E6FE100298713 /* APIConstants.swift */,
 			);
-			path = Networking;
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,16 +424,20 @@
 				D0634082222E505900298713 /* ViewController.swift in Sources */,
 				D0634088222E505900298713 /* PayPay_Demo.xcdatamodeld in Sources */,
 				01C3D728222EE0F200885B55 /* InformaticView.swift in Sources */,
+				01C3D731222EE96E00885B55 /* APIHandler.swift in Sources */,
 				01C3D71B222EDCA300885B55 /* StringExtensions.swift in Sources */,
 				01C3D710222ED4DB00885B55 /* CurrencyCollectionViewCellVM.swift in Sources */,
+				01C3D733222EE9F000885B55 /* Reachability.swift in Sources */,
 				01C3D71F222EDDD400885B55 /* GenericErrorStringConstants.swift in Sources */,
 				D0634080222E505900298713 /* AppDelegate.swift in Sources */,
 				D06340BE222E6FE100298713 /* APIConstants.swift in Sources */,
+				01C3D72E222EE8C200885B55 /* APIError.swift in Sources */,
 				D06340B6222E6D9200298713 /* TableViewController.swift in Sources */,
 				01C3D715222ED5B700885B55 /* CurrencyCollectionViewCell.swift in Sources */,
 				01C3D725222EE05300885B55 /* UICustomView.swift in Sources */,
 				D06340B8222E6DE400298713 /* CurrencyConversionViewController.swift in Sources */,
 				D06340BB222E6F4C00298713 /* Constants.swift in Sources */,
+				01C3D72C222EE88000885B55 /* APISession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
