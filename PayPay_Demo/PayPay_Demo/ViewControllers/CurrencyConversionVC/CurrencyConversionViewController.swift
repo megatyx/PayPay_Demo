@@ -7,21 +7,12 @@
 //
 
 import UIKit
-
-
-
-struct CurrencyConversionViewControllerViewModel {
-    var userInputAmount: Float = 1
-    var baseDenomination: String = "JPY"
-    var currencyData: [Currency] = [Currency]()
-}
-
 class CurrencyConversionViewController: UIViewController {
 
     @IBOutlet weak var currencyCollectionView: UICollectionView!
 
-    var viewModel: CurrencyConversionViewControllerViewModel? = nil {
-        didSet
+    var viewModel: CurrencyConversionVCViewModel? = nil {
+        didSet {}
     }
     
     var currencyData: [Currency]? = nil {

@@ -10,13 +10,19 @@ extension Constants {
     struct API {
         static let baseURL = "http://data.fixer.io/api/"
         struct Routes {
-            static let latestEndPoint = "latest"
+            static let latest = "latest"
         }
 
         struct Parameters {
             static let accessKey = "91c2c49f07767a130b3e7973feb957de"
-            static let baseCurrency = "base"
-            static let currencySymbols = "symbols"
+            
+            struct Keys {
+                static let accessKey = "access_key"
+                static let baseCurrency = "base"
+                static let currencySymbols = "symbols"
+            }
+            
+            
         }
 
         struct JSONPayloadKeys {

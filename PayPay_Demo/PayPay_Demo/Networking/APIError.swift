@@ -32,23 +32,23 @@ enum APIError: Error, CustomStringConvertible {
     var description: String {
         switch self {
         case .unknown, .unknown200, .unknown300, .unknown400, .unknown500:
-            return "Unknown Error"
+            return "Unknown Error".localize()
         case .payloadParse:
-            return "JSON payload from the server couldn't be parsed into specified data stucture"
+            return "JSON payload from the server couldn't be parsed into specified data stucture".localize()
         case .dictionaryParse:
-            return "JSON payload could not conform to Dicionary -> [String:Any]"
+            return "JSON payload could not conform to Dicionary -> [String:Any]".localize()
         case .internalServerError:
-            return "Internal Server Error"
+            return "Internal Server Error".localize()
         case .notFound:
-            return "Not Found"
+            return "Not Found".localize()
         case .noResponse:
-            return "Server Unreachable"
+            return "Server Unreachable".localize()
         case .forbidden:
-            return "Forbidden"
+            return "Forbidden".localize()
         case .urlCasting:
-            return "Unable to cast URL correctly"
+            return "Unable to cast URL correctly".localize()
         case .unreachableInternetDisabled:
-            return "Network call unreachable due to device internet settings being disabled"
+            return "Network call unreachable due to device internet settings being disabled".localize()
         }
     }
 }

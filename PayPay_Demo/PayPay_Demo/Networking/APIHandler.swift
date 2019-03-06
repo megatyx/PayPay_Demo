@@ -7,18 +7,35 @@
 //
 
 import Foundation
-class APIHandler {
-//    class func getDashboardInfo(id: String, completion: @escaping (APIError?) -> Void ){
-//        let url = APIURLFactory().client().session().addString(addID).gamingContext().make()
-//        let apiSession = APISession(url: url)
-//        apiSession.getData(completion: {
-//            let decoder = JSONDecoder()
-//            do {
-//                let dashboard = try decoder.decode(DashboardVM.self, from: $0)
-//                completion(dashboard, nil)
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//        }, failure: {completion(nil,$0)})
-//    }
+struct APIHandler {
+    
+    static func getLatest(base: String? = nil, symbols: [String]? = nil, completion: @escaping (CurrencyConversionVCViewModel?, APIError?) -> Void) {
+        
+        let urlFactory = URLFactory()
+            .addString(Constants.API.Routes.latest)
+            .addQuery(key: Constants.API.Parameters.Keys.accessKey,
+                      value: Constants.API.Parameters.accessKey)
+        
+        if let base = base, Validators.currencySymbolIsValid(base: base) {
+            urlFactory.addQuery(key: Constants.API.Parameters.Keys.baseCurrency,
+                                value: base)
+        }
+        
+        if let symbols = symbols, symbols.count > 0 {
+            urlFactory.addQuery(key: Constants.API.Parameters.Keys.currencySymbols,
+                                value: CurrencySymbolsQueryFactory.generateSymbolsQueryString(from: symbols))
+        }
+        
+        let apiSession = APISession(url: try? urlFactory.make())
+        
+        apiSession.getData(completion: {data in
+            let decoder = JSONDecoder()
+            do {
+                let viewModel = try decoder.decode(CurrencyConversionVCViewModel.self, from: data)
+                completion(viewModel, nil)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }, failure: {completion(nil, $0)})
+    }
 }

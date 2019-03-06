@@ -2,7 +2,7 @@
 //  CurrencyRates.swift
 //  PayPay_Demo
 //
-//  Created by Tyler Wells on 3/6/19.
+//  Created by Tyler Wells on 3/7/19.
 //  Copyright © 2019 Tyler Wells. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ extension CurrencyRates: Decodable {
     fileprivate enum CodingKeys: String, CodingKey {
         case rates = "rates"
     }
-
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let ratesDic = try container.decode([String:Float].self, forKey: .rates)
