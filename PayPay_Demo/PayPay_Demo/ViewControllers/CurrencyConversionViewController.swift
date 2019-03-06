@@ -8,35 +8,61 @@
 
 import UIKit
 
+
+
+struct CurrencyConversionViewControllerViewModel {
+    var userInputAmount: Float = 1
+    var baseDenomination: String = "JPY"
+    var currencyData: [Currency] = [Currency]()
+}
+
 class CurrencyConversionViewController: UIViewController {
+
+    @IBOutlet weak var currencyCollectionView: UICollectionView!
+
+    var viewModel: CurrencyConversionViewControllerViewModel? = nil {
+        didSet
+    }
+    
+    var currencyData: [Currency]? = nil {
+        didSet {
+            if currencyData != nil {
+                DispatchQueue.main.async {
+                    self.currencyCollectionView.reloadData()
+                }
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.currencyCollectionView.register(UINib(nibName: "CurrencyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CurrencyCollectionViewCell")
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension CurrencyConversionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return self.currencyData?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CurrencyCollectionViewCell", for: indexPath) as? CurrencyCollectionViewCell, let currency = self.currencyData?[indexPath.row] else {return generateGenericCell()}
+
+        if cell.viewModel == nil {
+            cell.viewModel = currency
+        }
+
+        return cell
     }
 
-
+    private func generateGenericCell() -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
 }

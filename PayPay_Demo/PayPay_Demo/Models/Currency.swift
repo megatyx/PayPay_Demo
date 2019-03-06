@@ -1,5 +1,5 @@
 //
-//  CurrencyCollectionViewCellVM.swift
+//  Currency.swift
 //  PayPay_Demo
 //
 //  Created by Tyler Wells on 3/6/19.
@@ -7,9 +7,7 @@
 //
 
 import Foundation
-
-
-struct CurrencyCollectionViewCellVM {
-    var currencyName: String
-    var amount: Float
+struct Currency {
+    let name: String
+    let amount: Float
 }
