@@ -11,6 +11,7 @@ extension Constants {
         static let baseURL = "http://data.fixer.io/api/"
         struct Routes {
             static let latest = "latest"
+            static let convert = "convert"
         }
 
         struct Parameters {

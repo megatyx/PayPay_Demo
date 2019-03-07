@@ -38,4 +38,6 @@ struct APIHandler {
             }
         }, failure: {completion(nil, $0)})
     }
+    
+    static func convertCurrency(from: String, to: String, amount: Float, completion: @escaping ())
 }

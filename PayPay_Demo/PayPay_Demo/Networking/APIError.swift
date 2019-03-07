@@ -15,6 +15,7 @@ enum APIError: Error, CustomStringConvertible {
     //Data Specific
     case payloadParse
     case dictionaryParse
+    case dataParseInvalidTimeStamp
     
     //Response Specific
     case unknown200
@@ -49,6 +50,8 @@ enum APIError: Error, CustomStringConvertible {
             return "Unable to cast URL correctly".localize()
         case .unreachableInternetDisabled:
             return "Network call unreachable due to device internet settings being disabled".localize()
+        case .dataParseInvalidTimeStamp:
+            return "Timestamp is missing or improperly parsed".localize()
         }
     }
 }
