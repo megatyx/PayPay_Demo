@@ -42,7 +42,7 @@ class APISession {
         }
     }
     
-    func getData(completion: @escaping (Data) -> Void, failure: @escaping Failure) {
+    func getData(completion: @escaping SuccessData, failure: @escaping Failure) {
         cancelNetwork()
         do {
             try APISession.checkConnectivity()

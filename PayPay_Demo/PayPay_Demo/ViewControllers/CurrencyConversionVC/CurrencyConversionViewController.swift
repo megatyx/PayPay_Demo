@@ -47,7 +47,7 @@ extension CurrencyConversionViewController: UICollectionViewDelegate, UICollecti
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CurrencyCollectionViewCell", for: indexPath) as? CurrencyCollectionViewCell, let currency = self.currencyData?[indexPath.row] else {return generateGenericCell()}
 
         if cell.viewModel == nil {
-            cell.viewModel = currency
+            //cell.viewModel = currency
         }
 
         return cell

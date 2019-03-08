@@ -9,19 +9,19 @@
 import Foundation
 
 struct ServerResponseInformation {
-    let success: Bool
+    let isSuccess: Bool
     let timeStamp: Date
 }
 
 extension ServerResponseInformation: Decodable {
     fileprivate enum CodingKeys: String, CodingKey {
-        case success
+        case isSuccess = "success"
         case timeStamp = "timestamp"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.success = try container.decode(Bool.self, forKey: .success)
+        self.isSuccess = try container.decode(Bool.self, forKey: .isSuccess)
         guard let timeStampInterval = try? container.decode(TimeInterval.self, forKey: .timeStamp) else {throw APIError.dataParseInvalidTimeStamp}
             self.timeStamp = Date(timeIntervalSince1970: timeStampInterval)
     }

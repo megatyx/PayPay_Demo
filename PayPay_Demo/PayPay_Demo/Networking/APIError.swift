@@ -16,6 +16,7 @@ enum APIError: Error, CustomStringConvertible {
     case payloadParse
     case dictionaryParse
     case dataParseInvalidTimeStamp
+    case unsuccessfulPayload
     
     //Response Specific
     case unknown200
@@ -33,25 +34,27 @@ enum APIError: Error, CustomStringConvertible {
     var description: String {
         switch self {
         case .unknown, .unknown200, .unknown300, .unknown400, .unknown500:
-            return "Unknown Error".localize()
+            return "Unknown Error"
         case .payloadParse:
-            return "JSON payload from the server couldn't be parsed into specified data stucture".localize()
+            return "JSON payload from the server couldn't be parsed into specified data stucture"
         case .dictionaryParse:
-            return "JSON payload could not conform to Dicionary -> [String:Any]".localize()
+            return "JSON payload could not conform to Dicionary -> [String:Any]"
         case .internalServerError:
-            return "Internal Server Error".localize()
+            return "Internal Server Error"
         case .notFound:
-            return "Not Found".localize()
+            return "Not Found"
         case .noResponse:
-            return "Server Unreachable".localize()
+            return "Server Unreachable"
         case .forbidden:
-            return "Forbidden".localize()
+            return "Forbidden"
         case .urlCasting:
-            return "Unable to cast URL correctly".localize()
+            return "Unable to cast URL correctly"
         case .unreachableInternetDisabled:
-            return "Network call unreachable due to device internet settings being disabled".localize()
+            return "Network call unreachable due to device internet settings being disabled"
         case .dataParseInvalidTimeStamp:
-            return "Timestamp is missing or improperly parsed".localize()
+            return "Timestamp is missing or improperly parsed"
+        case .unsuccessfulPayload:
+            return "JSON payload indicates failure in the return"
         }
     }
 }
