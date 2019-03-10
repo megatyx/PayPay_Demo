@@ -15,9 +15,14 @@ class CurrencyCollectionViewCell: UICollectionViewCell {
     
     var viewModel: CurrencyCollectionViewCellVM? {
         didSet {
-            self.currencyNameLabel.text = viewModel?.currencyName ?? Constants.GenericErrorStrings.unknown
-            self.currencyAmountLabel.text = viewModel != nil ? String(viewModel!.amount):Constants.GenericErrorStrings.unknown
+            self.currencyNameLabel.text = viewModel?.currency.name ?? Constants.GenericErrorStrings.unknown
+            self.currencyAmountLabel.text = viewModel != nil ? String(viewModel!.currency.amount):Constants.GenericErrorStrings.unknown
         }
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.black.cgColor
+    }
 }

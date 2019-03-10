@@ -7,6 +7,5 @@
 //
 
 struct CurrencyCollectionViewCellVM {
-    var currencyName: String
-    var amount: Float
+    var currency: Currency
 }

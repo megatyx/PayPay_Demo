@@ -9,8 +9,8 @@
 import Foundation
 
 struct ServerResponseInformation {
-    let isSuccess: Bool
-    let timeStamp: Date
+    let isSuccess: Bool?
+    let timeStamp: Date?
 }
 
 extension ServerResponseInformation: Decodable {
@@ -21,8 +21,11 @@ extension ServerResponseInformation: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.isSuccess = try container.decode(Bool.self, forKey: .isSuccess)
-        guard let timeStampInterval = try? container.decode(TimeInterval.self, forKey: .timeStamp) else {throw APIError.dataParseInvalidTimeStamp}
+        self.isSuccess = try? container.decode(Bool.self, forKey: .isSuccess)
+        if let timeStampInterval = try? container.decode(TimeInterval.self, forKey: .timeStamp) {
             self.timeStamp = Date(timeIntervalSince1970: timeStampInterval)
+        } else {
+            self.timeStamp = nil
+        }
     }
 }

@@ -11,6 +11,7 @@ enum APIError: Error, CustomStringConvertible {
     //Generics
     case unknown
     case urlCasting
+    case invalidParameters
     
     //Data Specific
     case payloadParse
@@ -55,6 +56,8 @@ enum APIError: Error, CustomStringConvertible {
             return "Timestamp is missing or improperly parsed"
         case .unsuccessfulPayload:
             return "JSON payload indicates failure in the return"
+        case .invalidParameters:
+            return "Invalid parameters passed to the API function"
         }
     }
 }

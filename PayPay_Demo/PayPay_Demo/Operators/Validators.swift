@@ -16,4 +16,11 @@ struct Validators {
         }
         return false
     }
+    
+    static func dateStringIsvalid(dateString: String) -> Bool {
+        if (!dateString.isEmpty && dateString.count == 10) {
+            return true
+        }
+        return false
+    }
 }

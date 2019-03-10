@@ -14,6 +14,7 @@ class APISession {
     
     typealias SuccessData = (Data) -> Void
     typealias Failure = (APIError) -> Void
+    typealias SuccessDic = ([String:Any]) -> Void
     
     init(urlSession: URLSession = URLSession(configuration: .default), url: URL? = nil, headers:[String:String]? = nil) {
         if let headers = headers {
@@ -40,6 +41,21 @@ class APISession {
             print("API_Error: Unreachable")
             throw APIError.unreachableInternetDisabled
         }
+    }
+    
+    func getJSONDictionary(completion: @escaping SuccessDic, failure: @escaping Failure) {
+        getData(completion: {data in
+            do {
+                if let jsonDic = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    DispatchQueue.main.async {
+                        completion(jsonDic)
+                    }
+                } else {failure(APIError.dictionaryParse)}
+            } catch {
+                print(error.localizedDescription)
+                failure(APIError.dictionaryParse)
+            }
+        }, failure: {failure($0)})
     }
     
     func getData(completion: @escaping SuccessData, failure: @escaping Failure) {

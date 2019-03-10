@@ -33,21 +33,27 @@ extension APIHandler {
                 let decoder = JSONDecoder()
                 do {
                     let serverData = try decoder.decode(ServerResponseInformation.self, from: data)
-                    if serverData.isSuccess {
-                        let viewModel = try decoder.decode(CurrencyConversionVCViewModel.self, from: data)
-                        success(viewModel)
+                    if let isSuccess = serverData.isSuccess, isSuccess {
+                        let rates = try decoder.decode(CurrencyRates.self, from: data)
+                        success(CurrencyConversionVCViewModel(baseDenomination: base, currencyRates: rates))
                     } else {
                         print(APIError.unsuccessfulPayload.description)
                         failure(APIError.unsuccessfulPayload)
                     }
+                } catch let error as APIError {
+                    print(error.localizedDescription)
+                    failure(error)
                 } catch {
                     print(error.localizedDescription)
                     failure(error as? APIError)
                 }
             }, failure: {failure($0)})
+        } catch let error as APIError {
+            print(error.localizedDescription)
+            failure(error)
         } catch {
             print(error.localizedDescription)
-            failure(APIError.urlCasting)
+            failure(APIError.unknown)
         }
     }
 }

@@ -21,6 +21,10 @@ extension Constants {
                 static let accessKey = "access_key"
                 static let baseCurrency = "base"
                 static let currencySymbols = "symbols"
+                static let fromCurrency = "from"
+                static let toCurrency = "to"
+                static let amount = "amount"
+                static let date = "date"
             }
             
             

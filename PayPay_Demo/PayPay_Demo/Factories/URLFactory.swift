@@ -53,7 +53,7 @@ class URLFactory {
     }
     
     @discardableResult
-    func addString(_ someString: String, isPiped: Bool = true) -> URLFactory {
+    func addString(_ someString: String, isPiped: Bool = false) -> URLFactory {
         self.urlString += (isPiped ? "\(someString)/":"\(someString)")
         return self
     }
