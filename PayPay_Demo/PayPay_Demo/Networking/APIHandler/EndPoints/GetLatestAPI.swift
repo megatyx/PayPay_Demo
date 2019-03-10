@@ -9,7 +9,7 @@
 import Foundation
 
 extension APIHandler {
-    static func getLatest(base: String? = nil, symbols: [String]? = nil, success: @escaping (CurrencyConversionVCViewModel) -> Void, failure: @escaping (APIError?) -> Void) {
+    static func getLatest(base: String? = nil, symbols: [String]? = nil, success: @escaping (String?, CurrencyRates) -> Void, failure: @escaping (APIError?) -> Void) {
         
         let urlFactory = URLFactory()
             .addString(Constants.API.Routes.latest)
@@ -35,7 +35,7 @@ extension APIHandler {
                     let serverData = try decoder.decode(ServerResponseInformation.self, from: data)
                     if let isSuccess = serverData.isSuccess, isSuccess {
                         let rates = try decoder.decode(CurrencyRates.self, from: data)
-                        success(CurrencyConversionVCViewModel(baseDenomination: base, currencyRates: rates))
+                        success(base, rates)
                     } else {
                         print(APIError.unsuccessfulPayload.description)
                         failure(APIError.unsuccessfulPayload)
