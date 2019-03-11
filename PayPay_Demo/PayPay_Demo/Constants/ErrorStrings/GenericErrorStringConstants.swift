@@ -8,6 +8,6 @@
 
 extension Constants {
     struct GenericErrorStrings {
-        static let unknown = "unknown".localize()
+        static let unknown = "unknown error".localize()
     }
 }

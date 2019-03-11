@@ -26,10 +26,10 @@ struct CurrencyConversionVCViewModel {
 }
 
 extension CurrencyConversionVCViewModel {
-    func getLatest(success: @escaping (CurrencyConversionVCViewModel) -> Void, failure: @escaping (String) -> Void) {
+    func getLatest(completion: @escaping (CurrencyConversionVCViewModel, String?) -> Void) {
         APIHandler.getLatest(success: {base, rates in
-            success(CurrencyConversionVCViewModel(baseDenomination: base, currencyRates: rates))
-        }, failure: {failure($0?.description ?? $0?.localizedDescription ?? "")})
+            completion(CurrencyConversionVCViewModel(baseDenomination: base, currencyRates: rates), nil)
+        }, failure: {completion(CurrencyConversionVCViewModel(), ($0 as? APIError)?.description ?? $0?.localizedDescription)})
     }
     
 }

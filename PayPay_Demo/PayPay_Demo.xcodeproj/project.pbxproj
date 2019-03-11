@@ -27,8 +27,8 @@
 		01E5670E2230B11100E5376A /* ServerResponseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E5670D2230B11100E5376A /* ServerResponseInformation.swift */; };
 		01E567142232CA0600E5376A /* GetLatestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E567132232CA0600E5376A /* GetLatestAPI.swift */; };
 		01E567162232CEB000E5376A /* ConvertCurrencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E567152232CEB000E5376A /* ConvertCurrencyAPI.swift */; };
-		D01E8941222F98D5001487B5 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E8940222F98D5001487B5 /* CollectionViewController.swift */; };
 		D01E8948222FA09F001487B5 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01E8947222FA09F001487B5 /* Currency.swift */; };
+		D028C31E2236537900805470 /* InformaticState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028C31D2236537900805470 /* InformaticState.swift */; };
 		D0634080222E505900298713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D063407F222E505900298713 /* AppDelegate.swift */; };
 		D0634085222E505900298713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0634083222E505900298713 /* Main.storyboard */; };
 		D0634088222E505900298713 /* PayPay_Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0634086222E505900298713 /* PayPay_Demo.xcdatamodeld */; };
@@ -36,7 +36,6 @@
 		D063408D222E505A00298713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D063408B222E505A00298713 /* LaunchScreen.storyboard */; };
 		D0634098222E505A00298713 /* PayPay_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0634097222E505A00298713 /* PayPay_DemoTests.swift */; };
 		D06340A3222E505A00298713 /* PayPay_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06340A2222E505A00298713 /* PayPay_DemoUITests.swift */; };
-		D06340B6222E6D9200298713 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06340B5222E6D9200298713 /* TableViewController.swift */; };
 		D06340B8222E6DE400298713 /* CurrencyConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06340B7222E6DE400298713 /* CurrencyConversionViewController.swift */; };
 		D06340BB222E6F4C00298713 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06340BA222E6F4C00298713 /* Constants.swift */; };
 		D06340BE222E6FE100298713 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06340BD222E6FE100298713 /* APIConstants.swift */; };
@@ -80,8 +79,8 @@
 		01E5670D2230B11100E5376A /* ServerResponseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseInformation.swift; sourceTree = "<group>"; };
 		01E567132232CA0600E5376A /* GetLatestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestAPI.swift; sourceTree = "<group>"; };
 		01E567152232CEB000E5376A /* ConvertCurrencyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertCurrencyAPI.swift; sourceTree = "<group>"; };
-		D01E8940222F98D5001487B5 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		D01E8947222FA09F001487B5 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		D028C31D2236537900805470 /* InformaticState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformaticState.swift; sourceTree = "<group>"; };
 		D063407C222E505900298713 /* PayPay_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayPay_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D063407F222E505900298713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0634084222E505900298713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,7 +94,6 @@
 		D063409E222E505A00298713 /* PayPay_DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayPay_DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06340A2222E505A00298713 /* PayPay_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPay_DemoUITests.swift; sourceTree = "<group>"; };
 		D06340A4222E505A00298713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D06340B5222E6D9200298713 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D06340B7222E6DE400298713 /* CurrencyConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionViewController.swift; sourceTree = "<group>"; };
 		D06340BA222E6F4C00298713 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D06340BD222E6FE100298713 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -126,13 +124,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01C3D70B222ED43B00885B55 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		01C3D711222ED54700885B55 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +189,7 @@
 			children = (
 				01C3D727222EE0F200885B55 /* InformaticView.swift */,
 				01C3D721222EDF6E00885B55 /* InformaticView.xib */,
+				D028C31D2236537900805470 /* InformaticState.swift */,
 			);
 			path = InformaticView;
 			sourceTree = "<group>";
@@ -320,7 +312,6 @@
 				D01E8946222F9D8F001487B5 /* Models */,
 				01C3D72A222EE84F00885B55 /* Networking */,
 				01C3D711222ED54700885B55 /* Views */,
-				01C3D70B222ED43B00885B55 /* ViewModels */,
 				D06340B2222E6D0A00298713 /* ViewControllers */,
 				01C3D718222EDC7400885B55 /* Extensions */,
 				D063407F222E505900298713 /* AppDelegate.swift */,
@@ -355,8 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				01E567052230455800E5376A /* CurrencyConversionVC */,
-				D06340B5222E6D9200298713 /* TableViewController.swift */,
-				D01E8940222F98D5001487B5 /* CollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -512,8 +501,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D028C31E2236537900805470 /* InformaticState.swift in Sources */,
 				01E567142232CA0600E5376A /* GetLatestAPI.swift in Sources */,
-				D01E8941222F98D5001487B5 /* CollectionViewController.swift in Sources */,
 				D0634088222E505900298713 /* PayPay_Demo.xcdatamodeld in Sources */,
 				01C3D728222EE0F200885B55 /* InformaticView.swift in Sources */,
 				01C3D731222EE96E00885B55 /* APIHandler.swift in Sources */,
@@ -528,7 +517,6 @@
 				01E566FF2230392900E5376A /* CurrencyCollectionViewCellVM.swift in Sources */,
 				D06340BE222E6FE100298713 /* APIConstants.swift in Sources */,
 				01C3D72E222EE8C200885B55 /* APIError.swift in Sources */,
-				D06340B6222E6D9200298713 /* TableViewController.swift in Sources */,
 				01C3D715222ED5B700885B55 /* CurrencyCollectionViewCell.swift in Sources */,
 				01E56708223045D900E5376A /* CurrencyConversionVCViewModel.swift in Sources */,
 				01C3D725222EE05300885B55 /* UICustomView.swift in Sources */,

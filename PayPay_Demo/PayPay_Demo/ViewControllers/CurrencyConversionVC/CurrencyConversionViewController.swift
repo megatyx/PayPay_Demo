@@ -9,8 +9,52 @@
 import UIKit
 class CurrencyConversionViewController: UIViewController {
 
+    //MARK :- Outlets
     @IBOutlet weak var currencyCollectionView: UICollectionView!
+    @IBOutlet weak var informaticView: InformaticView!
+    @IBOutlet weak var informaticViewHeight: NSLayoutConstraint!
 
+    @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var refreshButtonHeight: NSLayoutConstraint!
+    @IBAction func refreshButtonAction(_ sender: UIButton) {
+        guard let viewModel = viewModel else {return}
+        self.informaticView.informaticStateEnum = .refreshing
+        self.shouldHideInformaticView = false
+        viewModel.getLatest(completion: { [weak self] newViewModel, errorString in
+            self?.shouldHideInformaticView = true
+            if errorString != nil {print(errorString ?? ""); return}
+            self?.viewModel = newViewModel
+        })
+    }
+
+    //MARK :- View Variables
+    var shouldHideInformaticView: Bool = true {
+        didSet {
+            if informaticViewHeight != nil && informaticView != nil {
+                UIView.animate(withDuration: 0.05, animations: { [weak self] in
+                    guard let self = self else {return}
+                    if self.shouldHideInformaticView {
+                        self.informaticViewHeight.constant = 0
+                    } else {
+                        self.informaticViewHeight.constant = self.calculateNeededInfoViewHeight()
+                    }
+                })
+            }
+        }
+    }
+
+    var isRefreshing: Bool = false {
+        didSet {
+            if isRefreshing {
+                self.shouldHideInformaticView = true
+                self.informaticView.informaticStateEnum = .refreshing
+            } else {
+                self.shouldHideInformaticView = false
+            }
+        }
+    }
+    
+    //ViewModel
     var viewModel: CurrencyConversionVCViewModel? = CurrencyConversionVCViewModel() {
         didSet {
             if viewModel != nil {
@@ -23,7 +67,21 @@ class CurrencyConversionViewController: UIViewController {
         super.viewDidLoad()
         self.currencyCollectionView.register(UINib(nibName: "CurrencyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CurrencyCollectionViewCell")
         guard let viewModel = viewModel else {return}
-        viewModel.getLatest(success: {self.viewModel = $0}, failure: {print($0)})
+        self.isRefreshing = true
+        viewModel.getLatest(completion: { [weak self] newViewModel, errorString in
+            self?.isRefreshing = false
+            if errorString != nil {print(errorString ?? ""); return}
+            self?.viewModel = newViewModel
+        })
+    }
+
+    private func calculateNeededInfoViewHeight() -> CGFloat {
+        var height: CGFloat = CGFloat(self.view.frame.height / 10)
+        let maximumHeight: CGFloat = 150
+        let minimumHeight: CGFloat = 45
+        height = (height > maximumHeight) ? maximumHeight:height
+        height = (height < minimumHeight) ? minimumHeight:height
+        return height
     }
 
 }

@@ -14,21 +14,20 @@ import UIKit
     @IBOutlet weak var informaticsLabel: UILabel!
     
     //Inspectables
-    @IBInspectable var displayText: String = "" {
+    @IBInspectable var informaticState: Int = 1 {
         didSet {
-            self.informaticsLabel.text = displayText
+            if let changedState = InformaticState(rawValue: informaticState) {
+                self.informaticStateEnum = changedState
+            }
         }
     }
-    
-    @IBInspectable var textColor: UIColor = UIColor.white {
+
+    public var informaticStateEnum: InformaticState = .generalError {
         didSet {
-            self.informaticsLabel.textColor = textColor
-        }
-    }
-    
-    @IBInspectable var defaultBackgroundColor: UIColor = UIColor.green {
-        didSet {
-            self.backgroundColor = defaultBackgroundColor
+            if informaticsLabel != nil {
+                self.informaticsLabel.text = self.informaticStateEnum.description
+                self.informaticsLabel.backgroundColor = self.informaticStateEnum.backgroundColorSetting
+            }
         }
     }
     
