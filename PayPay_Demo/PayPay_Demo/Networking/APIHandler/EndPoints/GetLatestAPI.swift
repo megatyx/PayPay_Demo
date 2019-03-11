@@ -35,7 +35,12 @@ extension APIHandler {
                     let serverData = try decoder.decode(ServerResponseInformation.self, from: data)
                     if let isSuccess = serverData.isSuccess, isSuccess {
                         let rates = try decoder.decode(CurrencyRates.self, from: data)
-                        success(base, rates)
+                        var baseCurrency: String? = base
+                        if let jsonDic = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                            let newBaseCurrency =  jsonDic?["base"] as? String {
+                            baseCurrency = newBaseCurrency
+                        }
+                        success(baseCurrency, rates)
                     } else {
                         print(APIError.unsuccessfulPayload.description)
                         failure(APIError.unsuccessfulPayload)
