@@ -26,7 +26,9 @@ class FilterSelecterTableViewController: UITableViewController {
     override func willMove(toParent parent: UIViewController?) {
         super.willMove(toParent: parent)
         if parent == nil {
-            viewModel.delegate?.didSelect(currencyNames: self.selectedTitles)
+            if self.selectedTitles.count > 0 {
+                viewModel.delegate?.didSelect(currencyNames: self.selectedTitles)
+            }
         }
     }
 

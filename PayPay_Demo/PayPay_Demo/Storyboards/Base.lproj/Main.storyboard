@@ -29,7 +29,7 @@
         <!--Currency Display View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="CurrencyConversionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="CurrencyDisplayViewController" customModule="PayPay_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrencyDisplayViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="CurrencyDisplayViewController" customModule="PayPay_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,12 +159,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUA-9K-gTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="128"/>
+            <point key="canvasLocation" x="137" y="-576"/>
         </scene>
-        <!--View Controller-->
+        <!--Currency Conversion View Controller-->
         <scene sceneID="oI4-al-oaZ">
             <objects>
-                <viewController id="qI1-j7-9Ko" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrencyConversionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qI1-j7-9Ko" customClass="CurrencyConversionViewController" customModule="PayPay_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HUW-u7-7T9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,6 +179,9 @@
                                             <constraint firstAttribute="width" constant="30" id="k4F-Bt-mnv"/>
                                         </constraints>
                                         <state key="normal" title="X"/>
+                                        <connections>
+                                            <action selector="closeButtonAction:" destination="qI1-j7-9Ko" eventType="touchUpInside" id="5ud-8p-kNe"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yEF-ni-z35">
                                         <rect key="frame" x="0.0" y="23" width="200" height="177"/>
@@ -187,7 +190,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="59"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Conversion" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PDv-5N-XWH">
-                                                        <rect key="frame" x="8" y="7.5" width="126" height="44"/>
+                                                        <rect key="frame" x="8" y="7.5" width="136" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="45" id="WeD-iT-c7H"/>
                                                         </constraints>
@@ -196,13 +199,16 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPx-gq-9Ta">
-                                                        <rect key="frame" x="142" y="7.5" width="50" height="44"/>
+                                                        <rect key="frame" x="152" y="7.5" width="40" height="44"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="50" id="Ltj-DL-lLp"/>
+                                                            <constraint firstAttribute="width" constant="40" id="Ltj-DL-lLp"/>
                                                         </constraints>
                                                         <state key="normal" title="GBP">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="fromCurrencyDenominationButtonAction:" destination="qI1-j7-9Ko" eventType="touchUpInside" id="ri0-Nb-3ho"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -226,11 +232,17 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="59"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                 <state key="normal" title="↹"/>
+                                                                <connections>
+                                                                    <action selector="switchButtonAction:" destination="qI1-j7-9Ko" eventType="touchUpInside" id="D7h-dO-N3f"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQt-qw-dxs">
                                                                 <rect key="frame" x="100" y="0.0" width="100" height="59"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <state key="normal" title="⇅"/>
+                                                                <connections>
+                                                                    <action selector="convertButtonAction:" destination="qI1-j7-9Ko" eventType="touchUpInside" id="KiG-W0-m3D"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -247,16 +259,20 @@
                                                 <rect key="frame" x="0.0" y="118" width="200" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0y7-T7-wmj">
-                                                        <rect key="frame" x="8" y="7.5" width="126" height="44"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="8" y="7.5" width="136" height="44"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neF-i6-iMY">
-                                                        <rect key="frame" x="142" y="7.5" width="50" height="44"/>
+                                                        <rect key="frame" x="152" y="7.5" width="40" height="44"/>
                                                         <state key="normal" title="JPY">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="toCurrencyDenominationButton:" destination="qI1-j7-9Ko" eventType="touchUpInside" id="SeE-kO-4el"/>
+                                                            <action selector="toCurrencyDenominationButtonAction:" destination="qI1-j7-9Ko" eventType="touchUpInside" id="mLj-fh-d1u"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -289,17 +305,25 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="RSI-Wd-NBB" firstAttribute="centerY" secondItem="6Fo-q5-IAc" secondAttribute="centerY" id="BVK-7j-9Pk"/>
                             <constraint firstItem="RSI-Wd-NBB" firstAttribute="centerX" secondItem="6Fo-q5-IAc" secondAttribute="centerX" id="vtz-cF-Ff1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Fo-q5-IAc"/>
                     </view>
+                    <connections>
+                        <outlet property="conversionContainerView" destination="RSI-Wd-NBB" id="1fl-Zb-dy6"/>
+                        <outlet property="conversionContainerViewWidth" destination="iCO-i9-fkT" id="Z7s-se-HwE"/>
+                        <outlet property="fromCurrencyDenominationButton" destination="NPx-gq-9Ta" id="MF4-mo-VhA"/>
+                        <outlet property="fromCurrencyTextField" destination="PDv-5N-XWH" id="xf1-hY-MFh"/>
+                        <outlet property="toCurrencyAmountLabel" destination="0y7-T7-wmj" id="q2c-BB-6YJ"/>
+                        <outlet property="toCurrencyDenominationButton" destination="neF-i6-iMY" id="Aez-xa-O3q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-hV-ZAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711.2" y="126.38680659670166"/>
+            <point key="canvasLocation" x="866" y="133"/>
         </scene>
     </scenes>
 </document>

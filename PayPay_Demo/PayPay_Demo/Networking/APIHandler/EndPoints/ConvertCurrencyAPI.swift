@@ -9,12 +9,7 @@
 import Foundation
 
 extension APIHandler {
-    static func convertCurrency(from fromCurrency: String, to toCurrency: String, amount: Float, onHistoricalDate: String? = nil, success: @escaping () -> Void, failure: @escaping (APIError?) -> Void) {
-        
-        if Validators.currencySymbolIsValid(base: fromCurrency) && Validators.currencySymbolIsValid(base: toCurrency) {
-            failure(APIError.invalidParameters)
-            return
-        }
+    static func convertCurrency(from fromCurrency: String, to toCurrency: String, amount: Float, onHistoricalDate: String? = nil, success: @escaping (Currency, Currency) -> Void, failure: @escaping (APIError?) -> Void) {
         
         let urlFactory = URLFactory()
             .addString(Constants.API.Routes.convert)
@@ -44,9 +39,7 @@ extension APIHandler {
                             let toSymbol = queryDic["to"] as? String,
                             let _ = jsonDic?["info"] as? [String:Any],
                             let result = jsonDic?["result"] as? Float else {failure(APIError.dictionaryParse);return}
-                        let fromCurr = Currency(name: fromSymbol, amount: amount)
-                        let toCurr = Currency(name: toSymbol, amount: result)
-                        success()
+                        success(Currency(name: fromSymbol, amount: amount), Currency(name: toSymbol, amount: result))
                     } else {
                         print(APIError.unsuccessfulPayload.description)
                         failure(APIError.unsuccessfulPayload)

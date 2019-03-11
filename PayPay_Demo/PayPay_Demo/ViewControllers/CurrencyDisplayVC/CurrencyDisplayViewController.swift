@@ -114,8 +114,12 @@ class CurrencyDisplayViewController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    private func showConversionView() {
-        
+    private func showConversionView(from: Currency, to: Currency) {
+        guard let storyboard = self.storyboard,
+            let controller = storyboard.instantiateViewController(withIdentifier: "CurrencyConversionViewController") as? CurrencyConversionViewController else {return}
+        controller.viewModel = CurrencyConversionViewModel(fromCurrency: from, toCurrency: to)
+        controller.modalPresentationStyle = .overCurrentContext
+        self.present(controller, animated: false, completion: nil)
     }
 }
 
@@ -148,7 +152,7 @@ extension CurrencyDisplayViewController: UICollectionViewDelegate, UICollectionV
         possibleActions.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         possibleActions.addAction(UIAlertAction(title: "Convert Menu", style: .default, handler: { action in
-            return
+            self.showConversionView(from: Currency(name: self.viewModel.baseDenomination, amount: 1), to: self.viewModel.filteredRates[indexPath.row])
         }))
         
         possibleActions.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { action in

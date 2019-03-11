@@ -1,5 +1,5 @@
 //
-//  CurrencyConversionVCViewModel.swift
+//  CurrencyDisplayVCViewModel.swift
 //  PayPay_Demo
 //
 //  Created by Tyler Wells on 3/7/19.
