@@ -10,6 +10,9 @@ Before I continue, I would like to address some problems or concerns that you mi
 
 While I set out in the preliminary project with Unit Tests, I found that I just didn't have enough time to show off the coding stategy that I wanted to use and maintain good, usable tests. Generally, I like to unit test my models first using Test Driven Development. I will go back and add them at some point if I have time. I wrote in a semi-MVVM structure so that I could unit test better, however, I ended up running out of time.
 
+### Why did you include Core Data if you didn't use it?
+This one is out of habbit. Many times, I'll start a new project without core data only to need it later. For me here, just in case I decided to use it, it just made sense to just go ahead and put it there. To me, it's far more easier than trying to add it manually later.
+
 ### Factories? Those are old!
 
 I've gotten this criticism before. While I think that it's valid, I only use factories here in two places and only then for URL related things. The reason for this is security concerns. String literals are still exposed in the binaries of iPhone files. If you put your entire URL endpoint in a giant string constants folder, you will expose your endpoints to malicious users. Not only does this factory method help obfuscate endpoints and mitigate this issue, but it has the added benefit of maintaining URL related clensing and realiablility all in one place.
@@ -45,6 +48,7 @@ static func getLatest(base: String? = nil, symbols: [String]? = nil, success: @e
 }
 ```
 You can add many endpoints this way or even add substructs to better organize these functions.
+Another good example of this is the Constants struct
 
 ### Value vs Reference --- structs everywhere
 
@@ -52,8 +56,11 @@ If you noticed, I really went out of my way to try to use Swift structs as much 
 
 ### Function over strict conformity for MCV vs. MVVM
 
-In general, I tried to go for an MVVM strategy but there was a little bleed over. MVVM has always had the problem with the View Models desyncing from the View itself. It's one of the problems with using a style that's not really officially supported by Apple's API and SDK. Here, I tried to extract logic into the View Model that made sense as much as possible.
+In general, I tried to go for an MVVM strategy but there was a little bleed over. MVVM has always had the problem with the View Models desyncing from the View itself. It's one of the problems with using a style that's not really officially supported by Apple's API and SDK. Here, I tried to extract logic into the View Model that made sense as much as possible. It might have taken longer to write proper observers or a sync layer, so I opted out of going that far in depth for the purposes of this assignment.
 
 ### Universal interface
 
 I made sure that, when I designed all interfaces, they looked decent on all iOS devices. Go ahead and give it a try on your ipad simulator.
+
+# Conclusion
+Thank you for your time and consideration. Please feel free to contact me anytime if you have any qustions.
