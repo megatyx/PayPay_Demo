@@ -6,7 +6,7 @@ Hello! Welcome to my demo for you all. I spent quite some time on this, so I hop
 
 Before I continue, I would like to address some problems or concerns that you might have looking at it.
 
-## Limited Functionality -- Why do some functions not work?
+### Limited Functionality -- Why do some functions not work?
 Simply because the fixer API is limited and I'm unwilling to pay to unlock those features for the purposes of a demo. Simple things like, changing the base currency, or currency conversion are locked behind a paywall. I suggest that PayPay choose a more open API for these purposes in the future.
 
 ### Where are the Unit Tests?
