@@ -18,7 +18,7 @@ This one is out of habbit. Many times, I'll start a new project without core dat
 
 ### Factories? Those are old!
 
-I've gotten this criticism before. While I think that it's valid, I only use factories here in two places and only then for URL related things. The reason for this is security concerns. String literals are still exposed in the binaries of iPhone files. If you put your entire URL endpoint in a giant string constants folder, you will expose your endpoints to malicious users. Not only does this factory method help obfuscate endpoints and mitigate this issue, but it has the added benefit of maintaining URL related clensing and realiablility all in one place.
+I've gotten this criticism before. While I think that it's valid, I only use factories here in two places and only then for URL related things. The reason for this is security concerns. String literals are still exposed in the binaries of iPhone files. If you put your entire URL endpoint in a giant string constants folder, you will expose your endpoints to malicious users. Not only does this factory method help obfuscate endpoints and mitigate this issue, but it has the added benefit of maintaining URL related clensing and reliablility all in one place.
 
 ### You made all of these extra views...
 
