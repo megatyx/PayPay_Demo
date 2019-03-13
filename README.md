@@ -6,6 +6,9 @@ Hello! Welcome to my demo for you all. I spent quite some time on this, so I hop
 
 Before I continue, I would like to address some problems or concerns that you might have looking at it.
 
+## Limited Functionality -- Why do some functions not work?
+Simply because the fixer API is limited and I'm unwilling to pay to unlock those features for the purposes of a demo. Simple things like, changing the base currency, or currency conversion are locked behind a paywall. I suggest that PayPay choose a more open API for these purposes in the future.
+
 ### Where are the Unit Tests?
 
 While I set out in the preliminary project with Unit Tests, I found that I just didn't have enough time to show off the coding stategy that I wanted to use and maintain good, usable tests. Generally, I like to unit test my models first using Test Driven Development. I will go back and add them at some point if I have time. I wrote in a semi-MVVM structure so that I could unit test better, however, I ended up running out of time.
